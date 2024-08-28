@@ -26,7 +26,7 @@ paths:
         500:
           description: Server error
 
-  /invoices/{userId}/{invoiceId}:
+  /invoice/{userId}/{invoiceId}:
     get:
       summary: Get info invoice
       description: Returns invoice information for the specified user and invoice ID.
