@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Invoices
+  description: Service for generating invoices.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+
+paths:
+  /generateInvoice:
+    post:
+      tags:
+        - Invoice
+      summary: Generate invoice info.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/reqInvoice"
+
+      responses:
+        200:
+          description: Succes
+        500:
+          description: Server error
+
+  /invoice/{userId}/{invoiceId}:
+    get:
+      summary: Get info invoice
+      description: Returns invoice information for the specified user and invoice ID.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: User id
+          schema:
+            type: string
+            example: "3"
+        - name: invoiceId
+          in: path
+          required: true
+          description: Invoice id
+          schema:
+            type: string
+            example: "9593e48d-4acd-4f4c-b441-ea660d9fe39b"
+      responses:
+        200:
+          description: Succes
+        500:
+          description: Server error
+
+components:
+  schemas:
+    reqInvoice:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+          description: Client email
+          example: pete78@examples.com
+        completedTasks:
+          type: array
+          items:
+            type: object
+            properties:
+              taskName:
+                type: string
+                example: Repairing Car
+              cost:
+                type: integer
+                example: 27
