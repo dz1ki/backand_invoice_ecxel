@@ -1,0 +1,24 @@
+version: "3.1"
+
+volumes:
+  pg_selectel:
+
+services:
+  pg_db:
+    image: postgres:14.1-alpine
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=Yury
+      - POSTGRES_DB=invoice
+    ports:
+      - 5432:5432
+
+  cache_redis:
+    image: redis:6.2-alpine
+    environment:
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: 1234
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning --requirepass 1234

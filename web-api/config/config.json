@@ -1,0 +1,12 @@
+{
+  "development": {
+    "database": "invoice",
+    "username": "Yury",
+    "dialect": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "timezone": "utc",
+    "omitNull": true,
+    "password": "123"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "redisConfig": {
+    "host": "localHost",
+    "port": 6379,
+    "password": "",
+    "database": 2
+  },
+  "webApiConfig": {
+    "path": "http://localhost:3000/addInfoInvoice"
+  },
+  "cloudinary": {
+    "name": "db8rod1hf",
+    "key": "",
+    "secret": ""
+  }
+}
